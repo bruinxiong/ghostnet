@@ -1,6 +1,14 @@
 # GhostNet
 
-GhostNet: More Features from Cheap Operations [[arXiv]](https://arxiv.org/abs/1911.11907)
+**News** 
+
+2020/06/10 GhostNet is included in [PyTorch Hub](https://pytorch.org/hub/pytorch_vision_ghostnet/).
+
+2020/06/08 PyTorch code is included in this repo.
+
+---
+
+GhostNet: More Features from Cheap Operations. CVPR 2020. [[Paper]](http://openaccess.thecvf.com/content_CVPR_2020/html/Han_GhostNet_More_Features_From_Cheap_Operations_CVPR_2020_paper.html) [[arXiv]](https://arxiv.org/abs/1911.11907)
 
 By Kai Han, Yunhe Wang, Qi Tian, Jianyuan Guo, Chunjing Xu, Chang Xu.
 
@@ -12,54 +20,30 @@ By Kai Han, Yunhe Wang, Qi Tian, Jianyuan Guo, Chunjing Xu, Chang Xu.
 
 - **Performance**
 
-We beat other SOTA lightweight CNNs such as **MobileNetV3** and **FBNet**.
+GhostNet beats other SOTA lightweight CNNs such as **MobileNetV3** and **FBNet**.
 
 <div align="center">
    <img src="./fig/flops_latency.png" width="720">
 </div>
 
-## Implementation
+## Code
 
-This repo provides the TensorFlow code and pretrained model of GhostNet on ImageNet. The PyTorch implementation can be found [here](https://github.com/iamhankai/ghostnet.pytorch).
-
-`myconv2d.py` implemented `GhostModule` and `ghost_net.py` implemented `GhostNet`.
-
-### Requirements
-The code was verified on Python3.6, TensorFlow-1.13.1, Tensorpack-0.9.7. Not sure on other version.
-
-### Usage
-Run `python main.py --eval --data_dir=/path/to/imagenet/dir/ --load=./models/ghostnet_checkpoint` to evaluate on `val` set.
-
-You'll get the accuracy: top-1 error=`0.26066`, top-5 error=`0.08614` with only `141M` Flops (or say MAdds).
-
-### Data Preparation
-ImageNet data dir should have the following structure, and `val` and `caffe_ilsvrc12` subdirs are essential:
-```
-dir/
-  train/
-    ...
-  val/
-    n01440764/
-      ILSVRC2012_val_00000293.JPEG
-      ...
-    ...
-  caffe_ilsvrc12/
-    ...
-```
-caffe_ilsvrc12 data can be downloaded from http://dl.caffe.berkeleyvision.org/caffe_ilsvrc12.tar.gz
+This repo provides TensorFlow code and PyTorch code:
+- Tensorflow: [./tensorflow](https://github.com/huawei-noah/ghostnet/tree/master/tensorflow) with pretrained model.
+- PyTorch: [./pytorch](https://github.com/huawei-noah/ghostnet/tree/master/pytorch) with pretrained model.
 
 ## Citation
 ```
-@article{ghostnet,
+@inproceedings{ghostnet,
   title={GhostNet: More Features from Cheap Operations},
   author={Han, Kai and Wang, Yunhe and Tian, Qi and Guo, Jianyuan and Xu, Chunjing and Xu, Chang},
-  journal={arXiv},
-  year={2019}
+  booktitle={CVPR},
+  year={2020}
 }
 ```
 
 ## Other versions
-This repo provides the TensorFlow code of GhostNet. Other versions can be found in the following:
+This repo provides the TensorFlow/PyTorch code of GhostNet. Other versions can be found in the following:
 
 0. Pytorch: [code](https://github.com/iamhankai/ghostnet.pytorch)
 1. Darknet: [cfg file](https://github.com/AlexeyAB/darknet/files/3997987/ghostnet.cfg.txt), and [description](https://github.com/AlexeyAB/darknet/issues/4418)
